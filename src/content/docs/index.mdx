@@ -1,0 +1,42 @@
+---
+title: Turismo Sucre
+description: Manual de Usuario del Sistema de Gestión de Agencia de Viajes. Versión 2.0
+template: splash
+hero:
+  tagline: Bienvenidos al manual web interactivo del Sistema de Gestión de Turismo Sucre. Aquí encontrarás guías completas para cotizaciones, inventario y administración de roles.
+  actions:
+    - text: Comenzar Manual
+      link: /manual/01-introduccion/
+      icon: right-arrow
+    - text: Ver Flujo de Trabajo
+      link: /manual/09-flujo-de-trabajo-recomendado/
+      icon: document
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Módulos Principales
+
+<CardGrid stagger>
+	<Card title="Acceso y Perfil de Usuario" icon="setting">
+		Procedimiento para inicio de sesión, recuperación de credenciales y personalización de información y seguridad.
+		
+		[Ir a la sección &rarr;](/manual/02-acceso-al-sistema/)
+	</Card>
+	<Card title="Gestión de Cotizaciones" icon="document">
+		Creación de cotizaciones paso a paso, administración de itinerarios (servicios, hoteles, paquetes) y flujos de revisión.
+		
+		[Ir a la sección &rarr;](/manual/04-cotizaciones/)
+	</Card>
+	<Card title="Control de Inventario" icon="list-format">
+		Carga y administración de servicios y hoteles en el catálogo, incluyendo tarifas por rangos y configuraciones.
+		
+		[Ir a la sección &rarr;](/manual/07-inventario/)
+	</Card>
+	<Card title="Administración del Sistema" icon="random">
+		Control de usuarios activos, invitaciones pendientes y matriz de permisos por roles predefinidos de la agencia.
+		
+		[Ir a la sección &rarr;](/manual/09-administracion-del-sistema/)
+	</Card>
+</CardGrid>

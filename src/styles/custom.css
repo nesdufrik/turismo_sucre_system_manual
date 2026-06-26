@@ -1,0 +1,169 @@
+/* Brand colors for Turismo Sucre manual */
+
+/* Light mode overrides */
+:root {
+  /* Warm amber/burnt orange primary accent */
+  --sl-color-accent-low: hsl(24, 75%, 90%);
+  --sl-color-accent: hsl(28, 90%, 45%);
+  --sl-color-accent-high: hsl(24, 75%, 25%);
+  
+  /* Brand base colors */
+  --sl-color-asides-note: hsl(28, 90%, 45%);
+  --sl-color-asides-caution: hsl(14, 85%, 45%);
+}
+
+/* Dark mode overrides */
+:root[data-theme='dark'] {
+  --sl-color-accent-low: hsl(24, 50%, 15%);
+  --sl-color-accent: hsl(28, 100%, 55%);
+  --sl-color-accent-high: hsl(28, 100%, 80%);
+  
+  /* Brand base colors */
+  --sl-color-asides-note: hsl(28, 100%, 55%);
+  --sl-color-asides-caution: hsl(14, 90%, 55%);
+}
+
+/* Premium styling for manual data tables */
+.manual-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto; /* responsive horizontal scroll */
+}
+
+.manual-table thead tr {
+  background-color: var(--sl-color-accent-high);
+  color: var(--sl-color-bg);
+  text-align: left;
+  font-weight: bold;
+}
+
+.manual-table th,
+.manual-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--sl-color-hairline);
+}
+
+.manual-table tbody tr {
+  background-color: var(--sl-color-bg-card);
+  transition: background-color 0.2s ease;
+}
+
+.manual-table tbody tr:nth-of-type(even) {
+  background-color: var(--sl-color-bg);
+}
+
+.manual-table tbody tr:hover {
+  background-color: var(--sl-color-accent-low);
+}
+
+/* Custom styles for tables when dark theme is active */
+[data-theme='dark'] .manual-table thead tr {
+  background-color: var(--sl-color-accent);
+  color: #000;
+}
+
+[data-theme='dark'] .manual-table th {
+  color: #000;
+}
+
+/* Make images look premium */
+.sl-markdown-content img {
+  border-radius: 8px;
+  border: 1px solid var(--sl-color-hairline);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+}
+
+.sl-markdown-content img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Layout improvements for print */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .sidebar, .mobile-menu-toggle, .right-sidebar {
+    display: none !important;
+  }
+  main {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* Lightbox modal overlay styles for image zoom */
+#manual-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#manual-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#manual-lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+  cursor: zoom-out;
+}
+
+#manual-lightbox.active img {
+  transform: scale(1);
+}
+
+#manual-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#manual-lightbox-close:hover {
+  transform: scale(1.1);
+  color: var(--sl-color-accent);
+}
+
+#manual-lightbox-caption {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: center;
+  max-width: 80%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
